@@ -36,7 +36,7 @@ namespace zad1
         public void Add(int item)
         {
             current++;
-            if (current >= _internalStorage.Length)
+            if (current > _internalStorage.Length)
             {
                 int[] temp = _internalStorage;
                 _internalStorage = new int[temp.Length * 2];
@@ -114,6 +114,10 @@ namespace zad1
                 _internalStorage[i - 1] = _internalStorage[i];
             }
             current--;
+            for (int i = current; i < len; i++)
+            {
+                _internalStorage[i] = 0;
+            }
             return true;
         }
 
