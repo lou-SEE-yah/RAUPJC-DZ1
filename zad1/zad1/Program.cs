@@ -121,7 +121,7 @@ namespace zad1
             return true;
         }
 
-        public void ListExample(IIntegerList listOfIntegers)
+        public static void ListExample(IIntegerList listOfIntegers)
         {
             listOfIntegers.Add(1); // [1]
             listOfIntegers.Add(2); // [1 ,2]
