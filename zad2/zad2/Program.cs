@@ -77,8 +77,7 @@ namespace zad2
 
         public int IndexOf(X item)
         {
-            int len = _internalStorage.Length;
-            for (int i = 0; i < len; i++)
+            for (int i = 0, len = _internalStorage.Length; i < len; i++)
             {
                 if (_internalStorage[i].Equals(item))// provjeri equals
                 {
@@ -90,8 +89,7 @@ namespace zad2
 
         public bool Remove(X item)
         {
-            int len = _internalStorage.Length;
-            for (int i = 0; i < len; i++)
+            for (int i = 0, len = _internalStorage.Length; i < len; i++)
             {
                 if (_internalStorage[i].Equals(item))//equals
                 {
@@ -108,8 +106,7 @@ namespace zad2
                 return false;
             }
             _internalStorage[index] = default(X);
-            int len = current;
-            for (int i = index + 1; i < len; i++)
+            for (int i = index + 1, len = current; i < len; i++)
             {
                 _internalStorage[i - 1] = _internalStorage[i];
             }

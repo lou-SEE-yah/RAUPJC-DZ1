@@ -22,7 +22,7 @@ namespace zad2
             Console.WriteLine(listOfIntegers.RemoveAt(5)); // false
             listOfIntegers.Clear(); // []
             Console.WriteLine(listOfIntegers.Count); // 0
-            Console.Read();
+            //Console.Read();
         }
 
         public static void Main()
