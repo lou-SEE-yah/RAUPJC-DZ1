@@ -29,6 +29,16 @@ namespace zad2
         {
             IGenericList<double> list = new GenericList<double>(5);
             ListExample(list);
+
+            IGenericList<string> stringList = new GenericList<string>();
+            stringList.Add(" Hello ");
+            stringList.Add(" World ");
+            stringList.Add("!");
+            foreach (string value in stringList)
+            {
+                Console.WriteLine(value);
+            }
+            //Console.Read();
         }
     }
 }

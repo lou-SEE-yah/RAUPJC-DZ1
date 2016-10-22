@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -113,6 +114,16 @@ namespace zad2
             current--;
             _internalStorage[current] = default(X);
             return true;
+        }
+
+        public IEnumerator<X> GetEnumerator()
+        {
+            return new GenericListEnumerator<X>(this);
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }
