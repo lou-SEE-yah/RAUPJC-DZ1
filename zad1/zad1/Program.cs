@@ -121,7 +121,7 @@ namespace zad1
             return true;
         }
 
-        public static void ListExample(IIntegerList listOfIntegers)
+        public void ListExample(IIntegerList listOfIntegers)
         {
             listOfIntegers.Add(1); // [1]
             listOfIntegers.Add(2); // [1 ,2]
@@ -129,13 +129,12 @@ namespace zad1
             listOfIntegers.Add(4); // [1 ,2 ,3 ,4]
             listOfIntegers.Add(5); // [1 ,2 ,3 ,4 ,5]
             listOfIntegers.RemoveAt(0); // [2 ,3 ,4 ,5]
-            listOfIntegers.Remove(5); // [2 ,3 ,4]
+            listOfIntegers.Remove(5); //[2 ,3 ,4]
             Console.WriteLine(listOfIntegers.Count); // 3
             Console.WriteLine(listOfIntegers.Remove(100)); // false
             Console.WriteLine(listOfIntegers.RemoveAt(5)); // false
             listOfIntegers.Clear(); // []
             Console.WriteLine(listOfIntegers.Count); // 0
-            Console.Read();
         }
 
         public static void Main(string[] args)
