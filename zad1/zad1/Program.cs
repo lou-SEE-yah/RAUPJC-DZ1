@@ -65,7 +65,7 @@ namespace zad1
 
         public int GetElement(int index)
         {
-            if (index < _internalStorage.Length)
+            if (index < _internalStorage.Length && index >= 0)
             {
                 return _internalStorage[index];
             }
