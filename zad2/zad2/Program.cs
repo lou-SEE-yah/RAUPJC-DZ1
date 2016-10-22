@@ -4,25 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace zad1
+namespace zad2
 {
-    public class IntegerList : IIntegerList
+    public class GenericList<X> : IGenericList<X>
     {
-        private int[] _internalStorage;
+        private X[] _internalStorage;
         private int current = 0;
 
-        public IntegerList()
+        public GenericList()
         {
-            _internalStorage = new int[4];
+            _internalStorage = new X[4];
         }
 
-        public IntegerList(int initialSize)
+        public GenericList(int initialSize)
         {
             if (initialSize < 0)
             {
                 throw new Exception();// bolje ovo napraviti
             }
-            _internalStorage = new int[initialSize];
+            _internalStorage = new X[initialSize];
         }
 
         public int Count
@@ -33,13 +33,13 @@ namespace zad1
             }
         }
 
-        public void Add(int item)
+        public void Add(X item)
         {
             current++;
             if (current > _internalStorage.Length)
             {
-                int[] temp = _internalStorage;
-                _internalStorage = new int[temp.Length * 2];
+                X[] temp = _internalStorage;
+                _internalStorage = new X[temp.Length * 2];
                 Array.Copy(temp, _internalStorage, temp.Length);
             }
             _internalStorage[current - 1] = item;
@@ -51,11 +51,11 @@ namespace zad1
             current = 0;
         }
 
-        public bool Contains(int item)
+        public bool Contains(X item)
         {
-            foreach (int i in _internalStorage)
+            foreach (X i in _internalStorage)
             {
-                if (i == item)
+                if (i.Equals(item))//provjeri
                 {
                     return true;
                 }
@@ -63,7 +63,7 @@ namespace zad1
             return false;
         }
 
-        public int GetElement(int index)
+        public X GetElement(int index)
         {
             if (index < _internalStorage.Length && index >= 0)
             {
@@ -75,12 +75,12 @@ namespace zad1
             }
         }
 
-        public int IndexOf(int item)
+        public int IndexOf(X item)
         {
             int len = _internalStorage.Length;
             for (int i = 0; i < len; i++)
             {
-                if (_internalStorage[i] == item)
+                if (_internalStorage[i].Equals(item))// provjeri equals
                 {
                     return i;
                 }
@@ -88,12 +88,12 @@ namespace zad1
             return -1;
         }
 
-        public bool Remove(int item)
+        public bool Remove(X item)
         {
             int len = _internalStorage.Length;
             for (int i = 0; i < len; i++)
             {
-                if (_internalStorage[i] == item)
+                if (_internalStorage[i].Equals(item))//equals
                 {
                     return RemoveAt(i);
                 }
@@ -107,37 +107,16 @@ namespace zad1
             {
                 return false;
             }
-            _internalStorage[index] = 0;
+            _internalStorage[index] = default(X);
             int len = current;
             for (int i = index + 1; i < len; i++)
             {
                 _internalStorage[i - 1] = _internalStorage[i];
             }
             current--;
-            _internalStorage[current] = 0;
+            _internalStorage[current] = default(X);
             return true;
-        }
-
-        public static void ListExample(IIntegerList listOfIntegers)
-        {
-            listOfIntegers.Add(1); // [1]
-            listOfIntegers.Add(2); // [1 ,2]
-            listOfIntegers.Add(3); // [1 ,2 ,3]
-            listOfIntegers.Add(4); // [1 ,2 ,3 ,4]
-            listOfIntegers.Add(5); // [1 ,2 ,3 ,4 ,5]
-            listOfIntegers.RemoveAt(0); // [2 ,3 ,4 ,5]
-            listOfIntegers.Remove(5); //[2 ,3 ,4]
-            Console.WriteLine(listOfIntegers.Count); // 3
-            Console.WriteLine(listOfIntegers.Remove(100)); // false
-            Console.WriteLine(listOfIntegers.RemoveAt(5)); // false
-            listOfIntegers.Clear(); // []
-            Console.WriteLine(listOfIntegers.Count); // 0
-        }
-
-        public static void Main(string[] args)
-        {
-            IIntegerList list = new IntegerList(5);
-            ListExample(list);
         }
     }
 }
+
