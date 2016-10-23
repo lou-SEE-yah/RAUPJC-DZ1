@@ -15,5 +15,6 @@ namespace Pong
         public const float DefaultBallBumpSpeedIncreaseFactor = 1.05f;
         public const int DefaultBallSize = 40;
         public const int WallDefaultSize = 100;
+        public const float MaxBallSpeed = 1f;
     }
 }

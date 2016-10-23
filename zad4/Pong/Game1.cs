@@ -124,9 +124,9 @@ namespace Pong
             // Load sounds
             // Start background music
             HitSound = Content.Load<SoundEffect>("hit");
-            //Music = Content.Load<Song>("music");
+            Music = Content.Load<Song>("music");
             MediaPlayer.IsRepeating = true;
-            //MediaPlayer.Play(Music);
+            MediaPlayer.Play(Music);
         }
 
         /// <summary>

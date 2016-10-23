@@ -15,7 +15,24 @@ namespace Pong
         /// <summary >
         /// Defines current ball speed in time .
         /// </ summary >
-        public float Speed { get; set; }
+        private float _speed;
+        public float Speed {
+            get
+            {
+                return _speed;
+            }
+            set
+            {
+                if (value >= GameConstants.MaxBallSpeed)
+                {
+                    _speed = GameConstants.MaxBallSpeed;
+                }
+                else
+                {
+                    _speed = value;
+                }
+            }
+        }
 
         public float BumpSpeedIncreaseFactor { get; set; }
         
