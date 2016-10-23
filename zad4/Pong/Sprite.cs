@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Pong
 {
-    public abstract class Sprite
+    public abstract class Sprite : IPhysicalObject2D
     {
         public float X { get; set; }
         public float Y { get; set; }
