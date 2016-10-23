@@ -137,15 +137,22 @@ namespace Pong
             var touchState = Keyboard.GetState();
             if (touchState.IsKeyDown(Keys.Left))
             {
-                PaddleBottom.X = PaddleBottom.X - (float)(PaddleBottom.Speed *
-                gameTime.ElapsedGameTime.TotalMilliseconds);
+                PaddleBottom.X = PaddleBottom.X - (float)(PaddleBottom.Speed * gameTime.ElapsedGameTime.TotalMilliseconds);
             }
             if (touchState.IsKeyDown(Keys.Right))
             {
-                PaddleBottom.X = PaddleBottom.X + (float)(PaddleBottom.Speed *
-                gameTime.ElapsedGameTime.TotalMilliseconds);
+                PaddleBottom.X = PaddleBottom.X + (float)(PaddleBottom.Speed * gameTime.ElapsedGameTime.TotalMilliseconds);
             }
 
+            var touchState2 = Keyboard.GetState();
+            if (touchState2.IsKeyDown(Keys.A))
+            {
+                PaddleTop.X = PaddleTop.X - (float)(PaddleTop.Speed * gameTime.ElapsedGameTime.TotalMilliseconds);
+            }
+            if (touchState2.IsKeyDown(Keys.D))
+            {
+                PaddleTop.X = PaddleTop.X + (float)(PaddleTop.Speed * gameTime.ElapsedGameTime.TotalMilliseconds);
+            }
             base.Update(gameTime);
         }
 
